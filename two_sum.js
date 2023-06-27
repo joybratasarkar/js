@@ -54,3 +54,60 @@ function containsDuplicate(nums) {
 nums = [1, 2, 3, 4,4]
 var a = containsDuplicate(nums);
 console.log(a);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function permuteArray(arr) {
+    console.log(arr);
+    const permutations = [];
+  
+    function generatePermutations(currentArr, remainingArr) {
+        console.log(remainingArr);
+
+      if (remainingArr.length === 0) {
+        permutations.push(currentArr);
+        return;
+      }
+  
+      for (let i = 0; i < remainingArr.length; i++) {
+
+        const updatedCurrentArr = [...currentArr, remainingArr[i]];
+        // console.log('updatedCurrentArr',updatedCurrentArr);
+        const updatedRemainingArr = remainingArr.filter((_, index) => {
+            index !== i
+        });
+        console.log('updatedRemainingArr',updatedRemainingArr);
+        generatePermutations(updatedCurrentArr, updatedRemainingArr);
+      }
+    }
+  
+    generatePermutations([], arr);
+  
+    return permutations;
+  }
+  
+  // Example usage
+  const array = [1, 2, 3];
+  const permutations = permuteArray(array);
+  console.log(permutations);

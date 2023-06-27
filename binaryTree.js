@@ -1,9 +1,11 @@
 class Node {
+
     constructor(value) {
         this.value = value
         this.left = null
         this.right = null
     }
+
 }
 class BST {
     constructor(value) {
@@ -17,10 +19,8 @@ class BST {
     insert(value) {
         this.count++
         let newNode = new Node(value)
-
         const searchTree = node => {
             //if value < node.value go left
-
             if (value < node.value) {
                 //if no left child ,append new node
                 if (!node.left) {
@@ -88,7 +88,7 @@ class BST {
     // 2,3,12,15,28,36,39
     dfsInOrder() {
         let result = []
-        const traverse = node => {
+        function traverse(node) {
             if (node.left) traverse(node.left)
 
             result.push(node.value)
@@ -102,13 +102,22 @@ class BST {
     // 15,3,2,12,34,28,39 
     dfsPreOrder() {
         let result = []
-        const traverse = node => {
+        // const traverse = node => {
+        //     result.push(node.value)
+
+        //     if (node.left) traverse(node.left)
+
+        //     if (node.right) traverse(node.right)
+        // }
+        const traverse = function node(data) {
             result.push(node.value)
 
             if (node.left) traverse(node.left)
 
             if (node.right) traverse(node.right)
         }
+
+
         traverse(this.root)
 
         return result
@@ -136,10 +145,12 @@ class BST {
         let result = []
         let queue = []
         queue.push(this.root)
+        console.log('currentNode', this.root);
 
         while (queue.length) {
             let currentNode = queue.shift()
             result.push(currentNode.value)
+            console.log('currentNode', currentNode);
 
             if (currentNode.left) {
                 queue.push(currentNode.left)
@@ -178,7 +189,7 @@ bst.insert(39)
 // console.log('bst.contains()', bst.contains(9));
 // 
 // 
-// console.log('bst.dfsInOrder()', bst.dfsInOrder());
+console.log('bst.dfsInOrder()', bst.dfsInOrder());
 // 
 // 
 // console.log('bst.dfsPostOrder()', bst.dfsPostOrder());
@@ -188,5 +199,7 @@ bst.insert(39)
 // console.log('bst.dfsPreOrder()', bst.dfsPreOrder());
 
 console.log('bst.bfs()', bst.bfs());
+
+
 
 

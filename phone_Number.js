@@ -40,26 +40,26 @@ const map = {
 
 let result = [];
 
-var letterCombinations = function (digits) {
-    if (!digits) return [];
+// var letterCombinations = digits => {
+//     if (!digits) return [];
 
-    let current = [];
-    generateCombination(current, digits, 0);
+//     let current = [];
+//     generateCombination(current, digits, 0);
 
-    return result;
-};
-function generateCombination(current, digits, index) {
-    if (index === digits.length) {
-        result.push(current.join(''));
-        return;
-    }
-    // console.log('map[digits[index]]', map[digits[index]], '------------', index);
-    for (const char of map[digits[index]]) {
-        current.push(char);
-        generateCombination(current, digits, index + 1);
-        current.pop();
-    }
-}
+//     return result;
+// };
+// function generateCombination(current, digits, index) {
+//     if (index === digits.length) {
+//         result.push(current.join(''));
+//         return;
+//     }
+//     // console.log('map[digits[index]]', map[digits[index]], '------------', index);
+//     for (const char of map[digits[index]]) {
+//         current.push(char);
+//         generateCombination(current, digits, index + 1);
+//         current.pop();
+//     }
+// }
 
 
 
@@ -72,23 +72,32 @@ var phone = function (digits) {
     if (!digits) return []
     // let result = [];
     let current = [];
-    console.log('digits',current);
-
+    console.log('digits', current, digits);
     callbackfuntion(current, digits, 0);
+    console.log('current', result, digits);
+
     return result
 
 }
 function callbackfuntion(current, digits, index) {
-    console.log('digits',digits);
+    console.log('digits', current, index);
     if (index === digits.length)
-        return result.push(current.join(''));
+    {
+        console.log('result.push(current',result.push(current.join('')));
+
+    return result.push(current.join(''));
+    }
     else
-        // console.log('map[digits[index]]', map[digits[index]]);
+    console.log('index', index);
+    // console.log('map[digits[index]]', map[digits[index]]);
     for (let char of map[digits[index]]) {
-        // console.log('char', char);
         current.push(char);
-        callbackfuntion(current,digits,index+1)
+        console.log('char', current);
+
+        callbackfuntion(current, digits, index + 1)
         current.pop();
+        console.log('pop', current);
+
 
     }
 
@@ -101,7 +110,32 @@ function callbackfuntion(current, digits, index) {
 
 
 
-var digits = "2"
+var digits = "23"
 
-var data = phone(digits)
-console.log('result check', data);
+// var data1 = phone(digits)
+
+// console.log('result check', data1);
+
+const L = {'2':"abc",'3':"def",'4':"ghi",'5':"jkl",
+     '6':"mno",'7':"pqrs",'8':"tuv",'9':"wxyz"}
+
+var letterCombinations = function(D) {
+    let len = D.length, ans = []
+    if (!len) return []
+    const bfs = (pos, str) => {
+        if (pos === len) ans.push(str)
+        else {
+            console.log('letters',str);
+
+            let letters = L[D[pos]]
+            console.log('letters',letters);
+            for (let i = 0; i < letters.length; i++)
+
+            bfs(pos+1,str+letters[i])
+        }
+    }
+    bfs(0,"")
+    return ans
+};
+var data1=letterCombinations(digits)
+console.log('data1',data1);

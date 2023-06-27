@@ -50,29 +50,33 @@ var longestPalindrome = function (s) {
     let longest = '';
 
     for (let i = 0; i < s.length; i++) {
+        // console.log('i',i);
         let l = i;
         let r = i;
+
         var palindromLength = s.length;
 
         while (l >= 0 && r <= palindromLength && s[l] === s[r]) {
+            // console.log('inside');
+
             let currentSting = s.substring(l, r + 1);
+            console.log('l',l,'----','r',r+1,'----',currentSting);
+
             if (currentSting.length > longest.length) {
                 longest=currentSting
             }
-            console.log(l,'===','r');
-
             l -= 1
             r += 1
+            // console.log('---l',l,'----','r',r+1);
+
         }
         l = i;
         r = i + 1;
         while (l >= 0 && r <= palindromLength && s[l] === s[r]) {
             let currentSting = s.substring(l, r + 1);
             if (currentSting.length > longest.length) {
-                console.log('asdasd')
                 longest=currentSting
             }
-            console.log(l,'===','r');
             l -= 1
             r += 1
         }
