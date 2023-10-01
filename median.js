@@ -2,7 +2,6 @@ let nums1 = [1, 5,2];
 let nums2 = [7,6,8,20];
 
 var findMedianSortedArrays = function(nums1, nums2) {
-
     nums1.push(...nums2)
     num1= nums1.sort((a,b)=>a-b)
     console.log(nums1)

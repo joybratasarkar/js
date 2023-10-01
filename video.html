@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #video-grid {
+      display: grid;
+      /* grid-template-columns: repeat(auto-fill, 300px); */
+      grid-auto-rows: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    </style>
+</head>
+<body>
+
+    <button onclick="getMedia()">Camera</button>
+    <div id="video-grid"></div>
+<!-- <video></video> -->
+<video id="r" width="320" height="240" autoplay></video>
+
+
+
+<button id="start-record" onclick="start_button()">Start Recording</button>
+<button id="stop-record" onclick="stop_button()">Stop Recording</button>
+<a id="download-video" download="test.webm">Download Video</a>
+
+</body>
+
+<script src="video.js" defer></script>
+
+</html>

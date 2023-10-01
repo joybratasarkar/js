@@ -8,7 +8,7 @@ const mySetmap = [...new Set(arr.map((data) => data * 2))];
 
 const mySetmapClone = [...new Set(clone.map((data) => data * 2))];
 
-// console.log(mySet1);
+console.log(mySet1);
 
 
 // console.log([...new Set(arr)]);
@@ -60,12 +60,12 @@ function transformCardNumber(number) {
     parts.push(number.substr(i, 4)); // extract a substring of length 4
   }
 
-  return parts.join(" "); // join the parts with a space separator
+  return parts.join("-"); // join the parts with a space separator
 }
 
 
-// var a=transformCardNumber('1738392947283938') 
-// console.log('a',a);
+var a=transformCardNumber('1738392947283938') 
+console.log('a',a);
 
 
 const str = 'my   name is joy ';

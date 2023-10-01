@@ -150,7 +150,6 @@ function convert(string, rowNum) {
   for (let index = 0; index < string.length; index++) {
     // console.log('string[index]',string[index]);
     rows[direction] += string[index]
-    console.log('rows', direction);
     if (downward) {
       if (direction == rowNum - 1) {
         downward = false;
@@ -167,7 +166,6 @@ function convert(string, rowNum) {
       }
     }
   }
-  console.log('rows', rows);
   return rows.join('');
 
 }

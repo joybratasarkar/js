@@ -71,7 +71,7 @@ var mergeTwoLists = function (list1, list2) {
     //   list1.concat(list2)
           let nums = list1.concat(list2)
 
-      console.log(nums)
+      // console.log(nums)
   
     }
   };

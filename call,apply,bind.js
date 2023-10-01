@@ -12,7 +12,7 @@ var name1={
 
 //funtion borrowing
 mergeName.call(name,'silliguri' ,'darjelling');
-mergeName.apply(name1,[ 'darjelling ', ' darjelling ']  )
+mergeName.apply(name1,[ 'darjeeling ', ' darjelling ']  )
 
 
 let mergeName1= mergeName.bind(name,'silliguri' ,'darjelling');
